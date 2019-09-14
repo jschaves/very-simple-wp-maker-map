@@ -35,7 +35,7 @@ function deleteOptionsMakerMap() {
 		FROM
 			`{$wpdb->options}`
 		WHERE
-			`option_name` LIKE 'very_simple_wp_makermap_%'
+			`option_name` LIKE 'very_simple_wp_maker_map_%'
 	" );
 }
 deleteOptionsMakerMap();
