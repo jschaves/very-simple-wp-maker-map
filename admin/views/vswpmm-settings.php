@@ -61,7 +61,7 @@ if ( ! defined( 'WPINC' ) ) {
 				<p>
 					<label><?php esc_html_e( 'Marker text, supports tag <a>', 'very-simple-wp-maker-map'  ); ?></label>
 					<br />
-					<input name="vswpmm-maker-text" type="text" style="width:300px" class="vswpmm-new" id="vswpmm-maker-text" value="" maxlength="100" required />
+					<input name="vswpmm-maker-text" type="text" style="width:300px" class="vswpmm-new" id="vswpmm-maker-text" value="" maxlength="1000" required />
 				</p>
 				<input id="vswpmm-lon-lat-maker-map-save" type="hidden" name="vswpmm-lon-lat-maker-map-save" value="" required />
 				<input id="vswpmm-id-maker-map-edit" type="hidden" name="vswpmm-edit" value="null" />
