@@ -67,6 +67,7 @@ function vswpmm_custom_wpkses_post_tags( $tags, $context ) {
 			'width'           => true,
 			'title'     => true,
 			'alt' => true,
+			'target' => true,
 		);
 	}
 	return $tags;

@@ -53,6 +53,7 @@ var vswpmmHeightMap;
 						console.log('Error');
 					} else {
 						if(id == 'view') {
+							console.log(222);
 							vswpmmHtml(response);
 						} else {
 							console.log(3);
@@ -72,6 +73,7 @@ var vswpmmHeightMap;
 		}
 		//html
 		function vswpmmHtml(response) {
+			console.log(response);
 			vswpmmWidthMap = jQuery('#vswpmm-width-maker-map').val() + '%';
 			vswpmmHeightMap = jQuery('#vswpmm-height-maker-map').val() + 'px';
 			jQuery('#vswpmm-js-map-new, #vswpmm-paint').html('');

@@ -10,8 +10,7 @@
  */
 class VSWPMM_Map {
     /**
-	* Initializes the function by registering the save function with the
-	* admin_post hook so that we can save our options to the database.
+	* Initializes the function get lat lon map.
 	*/
     public function init() {
 		wp_register_script(
@@ -32,20 +31,17 @@ class VSWPMM_Map {
 
 		function vswpmm_ajax_map() {
 			check_ajax_referer( 'vsgpmm-map' );
-			if( !empty($_POST['title'] ) ) {
-				$data = array(
-				  'format'     => 'jsonv2',
-				);
-				$url = 'https://nominatim.openstreetmap.org/search.php?q=' . str_replace( ' ', '%20', sanitize_text_field( $_POST['title'] ) ) . '&' . http_build_query($data);
-				$ch = curl_init( $url );
-				curl_setopt( $ch, CURLOPT_RETURNTRANSFER, true );
-				curl_setopt( $ch, CURLOPT_USERAGENT, 'Dark Secret Ninja/1.0' );
-				$geopos = curl_exec( $ch );
-				curl_close( $ch );
-				$json_data = json_decode( $geopos, true );
-				$lat = array( $json_data[0]['lat'], $json_data[0]['lon'] );
-				echo json_encode( $lat );
-				die();
+			if( !empty($_POST['title'] ) ) { 				
+				$q = sanitize_text_field( $_POST['title'] );
+				$url = 'https://nominatim.openstreetmap.org/search.php?q=' . $q . '&format=jsonv2';
+				$geopos = wp_remote_get( $url );
+				$latlon = json_decode( $geopos['body'], true );
+				echo json_encode( 
+					array( $latlon[0]['lat'], 
+						$latlon[0]['lon'] 
+					) 
+				) ;
+				die();				
 			}
 		}
 		add_action( 'wp_ajax_vswpmm_ajax_map', 'vswpmm_ajax_map' );
