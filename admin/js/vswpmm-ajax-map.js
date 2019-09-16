@@ -53,10 +53,8 @@ var vswpmmHeightMap;
 						console.log('Error');
 					} else {
 						if(id == 'view') {
-							console.log(222);
 							vswpmmHtml(response);
 						} else {
-							console.log(3);
 							jQuery('#vswpmm-lon-lat-maker-map-save').val(response[1] + 'vswpmm' + response[0]);
 						}
 					}
@@ -73,7 +71,6 @@ var vswpmmHeightMap;
 		}
 		//html
 		function vswpmmHtml(response) {
-			console.log(response);
 			vswpmmWidthMap = jQuery('#vswpmm-width-maker-map').val() + '%';
 			vswpmmHeightMap = jQuery('#vswpmm-height-maker-map').val() + 'px';
 			jQuery('#vswpmm-js-map-new, #vswpmm-paint').html('');
